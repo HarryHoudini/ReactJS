@@ -24,7 +24,11 @@ const AppHeader = () => {
 };
 
 const SearchPanel = () => {
-    return <input type="text" placeholder="search" />;
+    const searchText = 'Type here to search';
+    const searchStyle = {
+        fontSize: '2em',
+    };
+    return <input type="text" placeholder={searchText} style={searchStyle} className="fooo" />;
 };
 
 const App = () => {
