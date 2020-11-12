@@ -9,13 +9,6 @@ export type ItemPops = {
 };
 
 const App: React.FC = () => {
-    const items: ItemPops[] = [
-        { label: 'Drink coffee', important: false, id: 1 },
-        { label: 'Build React', important: true, id: 2 },
-        { label: 'Have a lunch', important: true, id: 3 },
-    ];
-
-    const login = <span>Login please</span>;
     return (
         <div>
             <Navbar />
