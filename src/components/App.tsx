@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar } from './Navbar';
-import { TodoForm } from './TodoForm';
+import Navbar from './Navbar';
+import TodoForm from './TodoForm';
 
 export type ItemPops = {
     label: string;
