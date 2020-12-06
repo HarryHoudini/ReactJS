@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 
-interface TodoFormProps {
+type TodoFormProps = {
     onAdd(title: string): void;
-}
+};
 
 export const TodoForm: React.FC<TodoFormProps> = (props) => {
     // const [title, setTitle] = useState('');
