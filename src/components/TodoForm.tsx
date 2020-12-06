@@ -4,7 +4,7 @@ type TodoFormProps = {
     onAdd(title: string): void;
 };
 
-export const TodoForm: React.FC<TodoFormProps> = (props) => {
+export const TodoForm: React.FC<TodoFormProps> = props => {
     // const [title, setTitle] = useState('');
 
     const ref = useRef<HTMLInputElement>(null);
