@@ -1,6 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-export default function Navbar() {
+export const Navbar: React.FC = () => {
     return (
         <nav>
             <div className="nav-wrapper blue lighten-1 px1">
@@ -9,16 +10,13 @@ export default function Navbar() {
                 </a>
                 <ul className="right hide-on-med-and-down">
                     <li>
-                        <a href="/">Sass</a>
+                        <NavLink to="/">Components</NavLink>
                     </li>
                     <li>
-                        <a href="/">Components</a>
-                    </li>
-                    <li>
-                        <a href="/">Information</a>
+                        <NavLink to="/about">Information</NavLink>
                     </li>
                 </ul>
             </div>
         </nav>
     );
-}
+};

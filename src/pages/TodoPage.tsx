@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { TodoForm } from '../components/TodoForm';
+import { TodoList } from '../components/TodoList';
 import { ITodo } from '../interfaces';
-import Navbar from './Navbar';
-import { TodoForm } from './TodoForm';
-import { TodoList } from './TodoList';
 
-export type ItemPops = {
-    label: string;
-    important: boolean;
-    id: number;
-};
-const App: React.FC = () => {
+export const TodosPage: React.FC = () => {
     const [todos, setTodos] = useState<ITodo[]>([]);
+
+    useEffect(() => {
+        const saved: ITodo[] = JSON.parse(localStorage.getItem('todos') || '[]');
+        setTodos(saved);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
 
     const addHandler = (title: string) => {
         const newTodo: ITodo = {
@@ -42,14 +45,9 @@ const App: React.FC = () => {
     };
 
     return (
-        <div>
-            <Navbar />
-            <div className="container mt2">
-                <TodoForm onAdd={addHandler} />
-                <TodoList todos={todos} onToggle={toggleHandler} onRemove={removeHandler} />
-            </div>
-        </div>
+        <React.Fragment>
+            <TodoForm onAdd={addHandler} />
+            <TodoList todos={todos} onToggle={toggleHandler} onRemove={removeHandler} />
+        </React.Fragment>
     );
 };
-
-export default App;
